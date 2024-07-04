@@ -1,0 +1,77 @@
+.TH CLEAN 1 "July 2024" "Version 1.0" "User Commands"
+.SH NAME
+clean \- A comprehensive system cleanup tool for Linux
+.SH SYNOPSIS
+.B clean
+[\fIoptions\fR]
+.SH DESCRIPTION
+The
+.B clean
+script performs various system cleanup tasks to ensure your system remains fast and efficient.
+
+.B Features:
+- **Update System**: Updates package lists and upgrades installed packages.
+- **Clean Package Cache**: Cleans up package cache to free up space.
+- **Clean Thumbnail Cache**: Removes cached thumbnails to reclaim disk space.
+- **Delete Old System Logs**: Deletes old system logs to prevent them from occupying too much space.
+- **Clear Swap**: Clears the swap space to ensure optimal performance.
+- **Remove Old Kernels**: Removes old and unused kernels to free up space.
+- **Remove Unused Dependencies**: Removes packages that are no longer needed.
+- **Free Up RAM**: Drops caches to free up RAM and improve system performance.
+- **Clean Temporary Files**: Removes temporary files to free up disk space.
+- **Clean Browser Caches**: Removes cache files from popular browsers (Firefox, Chrome, Brave).
+- **Generate Reports**: Generates a report summarizing the cleanup actions performed and the system state.
+
+.B Disclaimer:
+Please read the documentation carefully. This script can delete important files. Use it at your own risk.
+
+.SH OPTIONS
+.TP
+.B \-a, \--all
+Perform all cleaning actions.
+.TP
+.B \-u, \--update
+Update package lists and upgrade installed packages.
+.TP
+.B \-c, \--cache
+Clean up package cache.
+.TP
+.B \-t, \--thumbnail
+Clean up thumbnail cache.
+.TP
+.B \-l, \--logs
+Delete old system logs.
+.TP
+.B \-s, \--swap
+Clear swap.
+.TP
+.B \-T, \--tmp
+Clean up temporary files.
+.TP
+.B \-b, \--browsers
+Clean browser caches.
+.TP
+.B \-B, \--brave
+Clean Brave browser cache.
+.TP
+.B \-r, \--report
+Generate a cleaning report (must be used with at least one other cleaning option).
+.TP
+.B \-h, \--help
+Display this help message.
+.SH EXAMPLES
+.TP
+Perform all cleaning actions and generate a report:
+.B clean --all --report
+.TP
+Update package lists and upgrade installed packages:
+.B clean --update
+.TP
+Clean up package cache:
+.B clean --cache
+.SH AUTHOR
+Written by Your Name.
+.SH REPORTING BUGS
+Report bugs to <your-email@example.com>.
+.SH COPYRIGHT
+This is free software; see the source for copying conditions. There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
