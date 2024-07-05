@@ -267,7 +267,7 @@ case $key in
 esac
 done
 
-info "System cleanup complete."
+info "System cleanup complete !"
 log_action "System cleanup complete"
 generate_system_report
 generate_cleaning_report
