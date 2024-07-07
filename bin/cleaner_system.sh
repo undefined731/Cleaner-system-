@@ -113,14 +113,14 @@ clean_all() {
 }
 
 update_system() {
-    info "Updating package lists and upgrading installed packages..."
+    echo -e "\e[32mUpdating package lists and upgrading installed packages...\e[0m" # Updating package lists and upgrading installed packages...
     log_action "Updating package lists and upgrading installed packages"
     sudo apt-get update -y
     sudo apt-get upgrade -y
 }
 
 clean_cache() {
-    info "Cleaning up package cache..."
+    echo -e "\e[32mCleaning up package cache...\e[0m"  # ✅ Cleaning up package cache...
     log_action "Cleaning up package cache"
     CACHE_SIZE_BEFORE=$(sudo du -sh /var/cache/apt | awk '{print $1}')
     sudo apt-get clean -y
@@ -130,7 +130,7 @@ clean_cache() {
 }
 
 clean_thumbnail_cache() {
-    info "Clearing thumbnail cache..."
+    echo -e "\e[32mCleaning thubnail cache\e[0m"  # Clearing thumbnail cache
     log_action "Clearing thumbnail cache"
     THUMBNAIL_COUNT=$(find ~/.cache/thumbnails/* -type f | wc -l)
     THUMBNAIL_SIZE_BEFORE=$(du -sh ~/.cache/thumbnails/ | awk '{print $1}')
@@ -139,7 +139,7 @@ clean_thumbnail_cache() {
 }
 
 clean_logs() {
-    info "Deleting old system logs..."
+    echo -e "\e[32mDeleting old system logs...\e[0m"  # Deleting old system logs...
     log_action "Deleting old system logs"
     LOG_COUNT=$(find /var/log -type f -name "*.log" | wc -l)
     LOG_SIZE_BEFORE=$(sudo du -ch /var/log/*.log | grep total$ | awk '{print $1}')
@@ -149,14 +149,14 @@ clean_logs() {
 }
 
 clean_swap() {
-    info "Clearing swap..."
+    echo -e "\e[32mClearing swap...\e[0m"  # Clearing swap...
     log_action "Clearing swap"
     SWAP_CLEARED=$(free -h | grep Swap | awk '{print $3}')
     sudo swapoff -a && sudo swapon -a
 }
 
 clean_tmp() {
-    info "Cleaning temporary files..."
+    echo -e "\e[32mClearing tenporary files...\e[0m"  # Clearing temporary files...
     log_action "Cleaning temporary files"
     TMP_COUNT=$(find /tmp/* /var/tmp/* -type f | wc -l)
     TMP_SIZE_BEFORE=$(sudo du -ch /tmp/* /var/tmp/* | grep total$ | awk '{print $1}')
@@ -165,7 +165,7 @@ clean_tmp() {
 }
 
 clean_browsers() {
-    info "Cleaning browser caches..."
+    echo -e "\e[32mClearing browser caches...\e[0m"  # Clearing browser caches...
     log_action "Cleaning browser caches"
     BROWSER_COUNT=$(find ~/.cache/mozilla ~/.cache/google-chrome -type f | wc -l)
     BROWSER_SIZE_BEFORE=$(du -ch ~/.cache/mozilla ~/.cache/google-chrome | grep total$ | awk '{print $1}')
@@ -175,7 +175,7 @@ clean_browsers() {
 }
 
 clean_brave_cache() {
-    info "Cleaning Brave browser cache..."
+    echo -e "\e[32mClearing Brave browser cache...\e[0m"  # Clearing Brave browser cache...
     log_action "Cleaning Brave browser cache"
     BRAVE_COUNT=$(find ~/.cache/BraveSoftware -type f | wc -l)
     BRAVE_SIZE_BEFORE=$(du -ch ~/.cache/BraveSoftware | grep total$ | awk '{print $1}')
@@ -184,23 +184,34 @@ clean_brave_cache() {
 }
 
 remove_old_kernels() {
-    info "Removing old kernels..."
+    echo -e "\e[32mRemoving olds kernels...\e[0m"  # Removing olds kernels...
     log_action "Removing old kernels"
     sudo apt-get autoremove --purge -y
 }
 
 remove_unused_dependencies() {
-    info "Removing unused dependencies..."
+    echo -e "\e[32mRemoving unused dependencies...\e[0m"  # Removing unused dependencies...
     log_action "Removing unused dependencies"
     sudo apt-get autoremove -y
 }
 
 free_up_ram() {
-    info "Freeing up RAM..."
-    log_action "Freeing up RAM"
-    sync; echo 1 | sudo tee /proc/sys/vm/drop_caches
-    sync; echo 2 | sudo tee /proc/sys/vm/drop_caches
-    sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
+    echo -e "\e[32mFreeing up RAM...\e[0m" # Freeing up RAM en vert    log_action "Freeing up RAM"
+
+    echo "Starting process 1: Clearing PageCache"
+    sync; echo 1 | sudo tee /proc/sys/vm/drop_caches > /dev/null
+    echo -e "\e[32m\u2705 Process 1 completed\e[0m"  # ✅ Process 1 completed
+
+    echo "Starting process 2: Clearing Dentries and Inodes"
+    sync; echo 2 | sudo tee /proc/sys/vm/drop_caches > /dev/null
+echo -e "\e[32m\u2705 Process 2 completed\e[0m"  # ✅ Process 2 completed
+
+
+    echo "Starting process 3: Clearing PageCache, Dentries, and Inodes"
+    sync; echo 3 | sudo tee /proc/sys/vm/drop_caches > /dev/mull
+    echo -e "\e[32m\u2705 Process 3 completed\e[0m"  # ✅ Process 3 completed
+
+    echo "End of the process"
 }
 
 # Check for arguments
@@ -267,7 +278,7 @@ case $key in
 esac
 done
 
-info "System cleanup complete !"
+echo -e "\e[32m\u2705 System cleanup complete !\e[0m"  # ✅ System cleanup complete !
 log_action "System cleanup complete"
 generate_system_report
 generate_cleaning_report
