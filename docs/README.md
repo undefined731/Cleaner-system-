@@ -22,9 +22,9 @@ The script provides various options to perform specific cleanup tasks. You can r
 ### Basic Usage
 
 ```sh
-clean [options]
+clean -[options]
 ```
-# Options
+#### Options
 
     -a, --all: Perform all cleaning actions.
     -u, --update: Update package lists and upgrade installed packages.
@@ -40,19 +40,19 @@ clean [options]
 
 # Examples
 
-**- Perform All Cleaning Actions**
+**Perform All Cleaning Actions**
 ```sh
 clean --all
 ```
-**- Clean Package Cache and Generate a Report**
+**Clean Package Cache and Generate a Report**
 ```sh
 clean --cache --report
 ```
-**- Simulate Cleaning Temporary Files Without Making Changes**
+**Simulate Cleaning Temporary Files Without Making Changes**
 ```sh
 clean --tmp --dry-run
 ```
-**- Update System and Clean Unused Dependencies**
+**Update System and Clean Unused Dependencies**
 ```sh
 clean --update
 clean --remove-unused

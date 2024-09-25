@@ -29,12 +29,12 @@ Source Your Shell Configuration File
 
 After installation, reload your shell configuration for the clean alias to take effect.
 
-- For Bash Users:
+- For Bash Users :
 
 ```sh
 source ~/.bashrc
 ```
-- For Zsh Users:
+- For Zsh Users :
 
 ```sh
 
@@ -42,7 +42,7 @@ source ~/.zshrc
 ```
 # Verify the Installation
 
-You can now use the clean command:
+You can now use the clean command :
 
 ```sh
 clean --help
