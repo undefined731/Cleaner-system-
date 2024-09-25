@@ -15,13 +15,9 @@ git clone https://github.com/yourusername/cleaner-system.git
 ```
 2. Navigate to the Repository Directory
 ```sh
-cd cleaner-system
+cd cleaner_system
 ```
-3. Make the Installer Script Executable
-```sh
-chmod +x installer.sh
-```
-4. Run the Installer Script
+3. Run the Installer Script
 
 Run the installer script without sudo:
 ```sh

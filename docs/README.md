@@ -22,7 +22,7 @@ The script provides various options to perform specific cleanup tasks. You can r
 ### Basic Usage
 
 ```sh
-sudo clean [options]
+clean [options]
 ```
 # Options
 
@@ -42,18 +42,18 @@ sudo clean [options]
 
     Perform All Cleaning Actions
 ```sh
-sudo clean --all
+clean --all
 ```
 **- Clean Package Cache and Generate a Report**
 ```sh
-sudo clean --cache --report
+clean --cache --report
 ```
 **- Simulate Cleaning Temporary Files Without Making Changes**
 ```sh
-sudo clean --tmp --dry-run
+clean --tmp --dry-run
 ```
 **- Update System and Clean Unused Dependencies**
 ```sh
-sudo clean --update
-sudo clean --remove-unused
+clean --update
+clean --remove-unused
 ```    
