@@ -40,7 +40,7 @@ clean [options]
 
 # Examples
 
-    Perform All Cleaning Actions
+**- Perform All Cleaning Actions**
 ```sh
 clean --all
 ```
