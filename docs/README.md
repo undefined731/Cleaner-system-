@@ -1,45 +1,59 @@
 # Cleaner System
 
-Cleaner System is a comprehensive and user-friendly tool designed to help you maintain your Linux system by performing various cleanup tasks. It aims to keep your system running smoothly by freeing up disk space, removing unnecessary files, and optimizing system performance. With a range of features from cleaning cache to removing old kernels, Cleaner System is the perfect utility for regular system maintenance.
+Cleaner System is a comprehensive and user-friendly tool designed to help you maintain your Linux system by performing various cleanup tasks. It aims to keep your system running smoothly by freeing up disk space, removing unnecessary files, and optimizing system performance. With a range of features from cleaning caches to removing unused dependencies, Cleaner System is the perfect utility for regular system maintenance.
 
 ## Features
 
-- **Update System**: Updates package lists and upgrades installed packages.
-- **Clean Package Cache**: Cleans up package cache to free up space.
-- **Clean Thumbnail Cache**: Removes cached thumbnails to reclaim disk space.
-- **Delete Old System Logs**: Deletes old system logs to prevent them from occupying too much space.
-- **Clear Swap**: Clears the swap space to ensure optimal performance.
-- **Remove Old Kernels**: Removes old and unused kernels to free up space.
-- **Remove Unused Dependencies**: Removes packages that are no longer needed.
-- **Free Up RAM**: Drops caches to free up RAM and improve system performance.
-- **Clean Temporary Files**: Removes temporary files to free up disk space.
-- **Clean Browser Caches**: Removes cache files from popular browsers (Firefox, Chrome, Brave).
-- **Generate Reports**: Generates a report summarizing the cleanup actions performed and the system state.
+- **System Update**: Updates package lists and upgrades installed packages to keep your system up-to-date.
+- **Clean Package Cache**: Cleans up the package cache to free up space.
+- **Clean Thumbnail Cache**: Removes cached thumbnails older than a specified duration to reclaim disk space.
+- **Rotate and Clean Old System Logs**: Manages system logs by rotating and cleaning logs older than a specified duration.
+- **Clear Swap (If Not in Use)**: Clears the swap space if it's not actively being used to ensure optimal performance.
+- **Remove Unused Dependencies**: Removes packages that are no longer needed by any installed software.
+- **Clean Temporary Files**: Deletes temporary files older than a specified duration to free up disk space.
+- **Clean Browser Caches**: Cleans cache files from popular browsers (Firefox, Chrome, Brave) that are older than a specified duration.
+- **Generate System and Cleaning Reports**: Generates detailed reports summarizing the cleanup actions performed and the current system state.
+- **Dry Run Mode**: Allows you to simulate cleanup actions without making any changes to the system.
 
 ## Usage
 
-To use the cleaner script, run it with the appropriate options. Here are some examples:
+The script provides various options to perform specific cleanup tasks. You can run the script with one or more options as needed.
 
-- Perform all cleaning actions and generate a report:
-  ```sh
-  sudo ./cleaner_system.sh --all --report
+### Basic Usage
 
-# Compatibility
+```sh
+sudo clean [options]
+```
+# Options
 
-The current script is designed to work on Debian-based and Ubuntu-based distributions. It may not work correctly on other distributions without modifications. Below is a list of distributions that may require changes to the script for compatibility:
+    -a, --all: Perform all cleaning actions.
+    -u, --update: Update package lists and upgrade installed packages.
+    -c, --cache: Clean the package cache.
+    -t, --thumbnail: Clean thumbnail cache older than 7 days.
+    -l, --logs: Rotate and clean old system logs.
+    -s, --swap: Clear swap if not in use.
+    -T, --tmp: Clean temporary files older than 7 days.
+    -b, --browsers: Clean browser caches older than 7 days.
+    -r, --report: Generate a cleaning report.
+    --dry-run: Simulate actions without making changes.
+    -h, --help: Display help information.
 
-- Fedora: Uses dnf or yum for package management.
-- CentOS/RHEL: Uses yum or dnf for package management.
-- openSUSE: Uses zypper for package management.
-- Arch Linux: Uses pacman for package management.
-- NixOS: Has a unique package management system and filesystem structure.
-- Gentoo: Uses emerge for package management.
-- Void Linux: Uses xbps for package management.
-- Slackware: Has different methods for package and system management.
-- Clear Linux: Uses swupd for package management.
-- Disclaimer
-- Please read the documentation carefully. This script can delete important files. Use it at your own risk. - - Always ensure you have backups of your important data before using the cleaner script.
+# Examples
 
-# Reporting Bugs
-
-Report bugs to : acronym4725@protonmail.com
+    Perform All Cleaning Actions
+```sh
+sudo clean --all
+```
+**- Clean Package Cache and Generate a Report**
+```sh
+sudo clean --cache --report
+```
+**- Simulate Cleaning Temporary Files Without Making Changes**
+```sh
+sudo clean --tmp --dry-run
+```
+**- Update System and Clean Unused Dependencies**
+```sh
+sudo clean --update
+sudo clean --remove-unused
+```    
