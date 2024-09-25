@@ -15,7 +15,7 @@ git clone https://github.com/yourusername/cleaner-system.git
 ```
 2. Navigate to the Repository Directory
 ```sh
-cd cleaner_system
+cd Cleaner-system-
 ```
 3. Run the Installer Script
 
